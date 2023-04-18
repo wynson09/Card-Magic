@@ -23,6 +23,13 @@ import card19 from "../card-imgs/19.png";
 import card20 from "../card-imgs/20.png";
 import card21 from "../card-imgs/21.png";
 import shaffle from "../assets/shaffle.gif";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-cards";
+// import required modules
+import { EffectCards } from "swiper";
 
 const Game = () => {
   const [startGame, setStartGame] = useState(false);
@@ -149,10 +156,10 @@ const Game = () => {
             ) : (
               <div>
                 <div className="flex justify-center items-center flex-col">
-                  <h1 className="text-4xl font-semibold text-[#4db5ff] my-5">
+                  <h1 className="text-4xl font-semibold text-white my-5">
                     Your Card
                   </h1>
-                  <p className="text-lg font-medium text-white">
+                  <p className="text-lg font-medium text-gray-400">
                     I know what you're thinking.
                   </p>
                   <section className="w-[300px] flex justify-center flex-col mt-10 items-center">
@@ -206,26 +213,34 @@ const Game = () => {
           <div>
             {!startGame ? (
               <section className="flex justify-center items-center flex-col">
-                <h1 className="text-4xl font-semibold text-[#4db5ff] mb-2">
+                <h1 className="text-4xl font-semibold text-white mb-2">
                   Let's Play a Card Trick
                 </h1>
-                <p className="mb-[50px] text-lg font-medium text-white">
+                <p className="mb-[50px] text-lg font-medium text-gray-400">
                   Enjoy playing!
                 </p>
-                <ul className="gap-4 flex flex-wrap justify-center items-center lg:w-[1100px] md:w-[700px]">
-                  {card.map((item) => {
-                    return (
-                      <li
-                        className="neumorphism-3 w-[130px] p-1 rounded-xl overflow-hidden"
-                        key={item.number}
-                      >
-                        <img src={item.image} alt="card" />
-                      </li>
-                    );
-                  })}
-                </ul>
-                <div className="neumorphism-2 my-10 p-5 w-[300px] rounded-2xl flex justify-between items-center flex-col text-white">
-                  <p className="flex flex-wrap mt-5">
+                <div className="mb-[50px] w-[320px] overflow-hidden">
+                  <Swiper
+                    effect={"cards"}
+                    grabCursor={true}
+                    modules={[EffectCards]}
+                    className="mySwipers"
+                  >
+                    {card.map((item) => {
+                      return (
+                        <SwiperSlide key={item.number}>
+                          <img
+                            src={item.image}
+                            alt="card"
+                            className="img-swiper"
+                          />
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
+                </div>
+                <div className="box-shadow p-5 w-[300px] rounded-2xl flex justify-between items-center flex-col text-white">
+                  <p className="flex flex-wrap mt-5 text-center">
                     Please think of one card and remember it. If you are ready,
                     click the START button below.
                   </p>
@@ -244,14 +259,14 @@ const Game = () => {
               <div>
                 {!loading ? (
                   <section className="flex flex-col text-center">
-                    <h1 className="text-4xl font-semibold text-[#4db5ff] mb-2">
+                    <h1 className="text-4xl font-semibold text-white mb-2">
                       {!round ? `Round ${count}` : `Final Round`}
                     </h1>
-                    <p className="mb-[50px] text-lg font-medium text-white">
+                    <p className="mb-[50px] text-lg font-medium text-gray-400">
                       Choose which group your card belongs to!
                     </p>
                     <article className="flex relative justify-evenly items-center flex-row flex-wrap gap-10">
-                      <div className="flex items-center flex-col neumorphism-2 py-10 rounded-3xl">
+                      <div className="flex relative items-center flex-col box-shadow py-10 rounded-3xl">
                         <ul className="gap-4 flex flex-wrap w-[380px] justify-center ">
                           {group1.map((item) => {
                             return (
@@ -265,7 +280,7 @@ const Game = () => {
                           })}
                         </ul>
                         <button
-                          className="neumorphism-1 py-3 px-10 rounded-lg text-white mt-10 text-[20px] hover:px-16 hover:scale-110 transition-all"
+                          className="text-white py-[15px] px-[40px] rounded-[10px] border-2 shadow-solid mt-10 text-[20px]"
                           onClick={() => {
                             loadingMode();
                             cardShaffle(1);
@@ -274,7 +289,7 @@ const Game = () => {
                           Group 1
                         </button>
                       </div>
-                      <div className="flex items-center flex-col neumorphism-2 py-10 rounded-3xl">
+                      <div className="flex items-center flex-col box-shadow py-10 rounded-3xl">
                         <ul className="gap-4 flex flex-wrap w-[380px] justify-center ">
                           {group2.map((item) => {
                             return (
@@ -288,7 +303,7 @@ const Game = () => {
                           })}
                         </ul>
                         <button
-                          className="neumorphism-1 py-3 px-10 rounded-lg text-white mt-10 text-[20px] hover:px-16 hover:scale-110 transition-all"
+                          className="text-white py-[15px] px-[40px] rounded-[10px] border-2 shadow-solid mt-10 text-[20px]"
                           onClick={() => {
                             loadingMode();
                             cardShaffle(2);
@@ -297,7 +312,7 @@ const Game = () => {
                           Group 2
                         </button>
                       </div>
-                      <div className="flex items-center flex-col neumorphism-2 py-10 rounded-3xl">
+                      <div className="flex items-center flex-col box-shadow py-10 rounded-3xl">
                         <ul className="gap-4 flex flex-wrap w-[380px] justify-center ">
                           {group3.map((item) => {
                             return (
@@ -311,7 +326,7 @@ const Game = () => {
                           })}
                         </ul>
                         <button
-                          className="neumorphism-1 py-3 px-10 rounded-lg text-white mt-10 text-[20px] hover:px-16 hover:scale-110 transition-all"
+                          className="text-white py-[15px] px-[40px] rounded-[10px] border-2 shadow-solid mt-10 text-[20px]"
                           onClick={() => {
                             loadingMode();
                             cardShaffle(3);

@@ -32,11 +32,11 @@ const Header = () => {
             <Link to="/" className="nav_style my-4 text-center">
               Home
             </Link>
+            <Link to="/about" className="nav_style my-4 text-center">
+              About
+            </Link>
             <Link to="/instruction" className="nav_style my-4 text-center">
               Instruction
-            </Link>
-            <Link to="/rules" className="nav_style my-4 text-center">
-              Rules
             </Link>
           </nav>
         </div>
@@ -55,11 +55,11 @@ const Header = () => {
           <Link to="/" className="nav_style my-4 text-center">
             Home
           </Link>
+          <Link to="/about" className="nav_style my-4 text-center">
+            About
+          </Link>
           <Link to="/instruction" className="nav_style my-4 text-center">
             Instruction
-          </Link>
-          <Link to="/rules" className="nav_style my-4 text-center">
-            Rules
           </Link>
         </nav>
       </section>
