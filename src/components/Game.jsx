@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TransitionEffect from "./TransitionEffect";
-import Header from "./Header";
 import card1 from "../card-imgs/1.png";
 import card2 from "../card-imgs/2.png";
 import card3 from "../card-imgs/3.png";
@@ -138,7 +137,6 @@ const Game = () => {
   return (
     <section>
       <TransitionEffect />
-      <Header />
       <article className="flex justify-center items-center my-[120px]">
         {final ? (
           <div>
@@ -267,11 +265,11 @@ const Game = () => {
                     </p>
                     <article className="flex relative justify-evenly items-center flex-row flex-wrap gap-10">
                       <div className="flex relative items-center flex-col box-shadow py-10 rounded-3xl">
-                        <ul className="gap-4 flex flex-wrap w-[380px] justify-center ">
+                        <ul className="gap-4 flex flex-wrap w-[380px] justify-center superSmall:w-[335px]">
                           {group1.map((item) => {
                             return (
                               <li
-                                className="shadow-xl w-[100px]"
+                                className="shadow-xl w-[100px] superSmall:w-[90px]"
                                 key={item.number}
                               >
                                 <img src={item.image} alt="card" />
@@ -290,11 +288,11 @@ const Game = () => {
                         </button>
                       </div>
                       <div className="flex items-center flex-col box-shadow py-10 rounded-3xl">
-                        <ul className="gap-4 flex flex-wrap w-[380px] justify-center ">
+                        <ul className="gap-4 flex flex-wrap w-[380px] justify-center superSmall:w-[335px]">
                           {group2.map((item) => {
                             return (
                               <li
-                                className="shadow-xl w-[100px]"
+                                className="shadow-xl w-[100px] superSmall:w-[90px]"
                                 key={item.number}
                               >
                                 <img src={item.image} alt="card" />
@@ -313,11 +311,11 @@ const Game = () => {
                         </button>
                       </div>
                       <div className="flex items-center flex-col box-shadow py-10 rounded-3xl">
-                        <ul className="gap-4 flex flex-wrap w-[380px] justify-center ">
+                        <ul className="gap-4 flex flex-wrap w-[380px] justify-center superSmall:w-[335px]">
                           {group3.map((item) => {
                             return (
                               <li
-                                className="shadow-xl w-[100px]"
+                                className="shadow-xl w-[100px] superSmall:w-[90px]"
                                 key={item.number}
                               >
                                 <img src={item.image} alt="card" />

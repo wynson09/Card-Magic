@@ -656,11 +656,94 @@ body {
 /* ============================================ SWIPER EFFECT =========================== */
 .swiper {
   max-width: 230px;
-  height: 360px;
+  height: 345px;
 }
 
 .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 18px;
+}
+
+/* ============================================= ABOUT TITLE ANIMATION =========================== */
+.spinner {
+  height: 50px;
+  width: max-content;
+  font-weight: 600;
+  font-family: monospace;
+  color: white;
+  filter: drop-shadow(0 0 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.spinner span {
+  animation: loading6454 1.75s ease infinite;
+}
+
+.spinner span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.spinner span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.spinner span:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.spinner span:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.spinner span:nth-child(6) {
+  animation-delay: 1.25s;
+}
+
+.spinner span:nth-child(7) {
+  animation-delay: 1.5s;
+}
+
+.spinner span:nth-child(8) {
+  animation-delay: 1.75s;
+}
+
+.spinner span:nth-child(9) {
+  animation-delay: 2s;
+}
+
+.spinner span:nth-child(10) {
+  animation-delay: 2.25s;
+}
+
+.spinner span:nth-child(11) {
+  animation-delay: 2.5s;
+}
+
+@keyframes loading6454 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ======================== INSTRUCTION CONTENT  =========================*/
+.content-hide {
+  overflow: hidden;
+  max-height: 80px;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+.content-show {
+  overflow: hidden;
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
 }
